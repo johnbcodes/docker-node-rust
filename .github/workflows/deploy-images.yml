@@ -37,8 +37,8 @@ jobs:
           context: .
           file: lts.Dockerfile
           tags: |
-            ghcr.io/johnbcodes/docker-node-rust:lts-latest
-            ghcr.io/johnbcodes/docker-node-rust:lts-${{ github.ref_name }}
+            ghcr.io/johnbcodes/node-rust:lts-latest
+            ghcr.io/johnbcodes/node-rust:lts-${{ github.ref_name }}
           push: true
           build-args: |
             RUST_VERSION=${{ github.ref_name }}
@@ -50,8 +50,8 @@ jobs:
           context: .
           file: current.Dockerfile
           tags: |
-            ghcr.io/johnbcodes/docker-node-rust:current-latest
-            ghcr.io/johnbcodes/docker-node-rust:current-${{ github.ref_name }}
+            ghcr.io/johnbcodes/node-rust:current-latest
+            ghcr.io/johnbcodes/node-rust:current-${{ github.ref_name }}
           push: true
           build-args: |
             RUST_VERSION=${{ github.ref_name }}
