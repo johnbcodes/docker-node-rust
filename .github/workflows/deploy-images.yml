@@ -53,6 +53,3 @@ jobs:
             ghcr.io/johnbcodes/node-rust:current-latest
             ghcr.io/johnbcodes/node-rust:current-${{ github.ref_name }}
           push: true
-          build-args: |
-            RUST_VERSION=${{ github.ref_name }}
-            RUSTUP_VERSION=1.24.3
