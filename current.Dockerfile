@@ -1,16 +1,23 @@
 # Start with the more complicated docker build image
-FROM node:current-bullseye as build
+FROM node:current-bookworm-slim as build
 
 LABEL org.opencontainers.image.description="Node Current + Rust development on Debian Bullseye"
-ENV RUST_VERSION=1.69.0
+ENV RUST_VERSION=1.71.1
 LABEL version="${RUST_VERSION}"
 
-# Copied from https://github.com/rust-lang/docker-rust/blob/master/1.66.1/bullseye/Dockerfile
+# Copied and modified from https://github.com/rust-lang/docker-rust/blob/master/1.71.1/bookworm/slim/Dockerfile
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH
 
 RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        gcc \
+        libc6-dev \
+        wget \
+        ; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \
         amd64) rustArch='x86_64-unknown-linux-gnu'; rustupSha256='0b2f6c8f85a3d02fde2efc0ced4657869d73fccfce59defb4e8d29233116e6db' ;; \
@@ -29,9 +36,10 @@ RUN set -eux; \
     rustup --version; \
     cargo --version; \
     rustc --version; \
-    apt-get update; \
-    apt-get install --no-install-recommends -y rsync; \
-    rm -rf /var/lib/apt/lists/*
+    apt-get remove -y --auto-remove \
+        wget \
+        ; \
+    rm -rf /var/lib/apt/lists/*;
 
 ENTRYPOINT []
 
