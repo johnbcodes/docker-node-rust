@@ -30,7 +30,3 @@ The Node base images were created by the [Node.js project](https://nodejs.org/).
 The Dockerfile code for Rust installation was created by the [Rust community](https://rust-lang.org/).
 
 The Github Action CI, publishing of the ghcr.io image, and documentation was created by myself.
-
-## Under consideration
-
-Supporting more OS variants using similar methods to the template generation used by the official Rust docker images. 

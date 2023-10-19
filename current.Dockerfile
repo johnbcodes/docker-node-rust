@@ -1,15 +1,15 @@
 # Start with the more complicated docker build image
 FROM node:current-bookworm-slim as build
 
-LABEL org.opencontainers.image.description="Node Current + Rust development on Debian Bullseye"
-ENV RUST_VERSION=1.71.1
+LABEL org.opencontainers.image.description="Node Current + Rust development on Debian Bookworm"
+ENV RUST_VERSION=1.73.0
 LABEL version="${RUST_VERSION}"
 
-# Copied and modified from https://github.com/rust-lang/docker-rust/blob/master/1.71.1/bookworm/slim/Dockerfile
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH
 
+# Copied from https://github.com/rust-lang/docker-rust/blob/95dfe05d230fddf4f89bd3df46086eed15e0c832/1.73.0/bookworm/slim/Dockerfile#L8C1-L37C33
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
