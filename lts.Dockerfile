@@ -2,14 +2,14 @@
 FROM node:lts-bookworm-slim as build
 
 LABEL org.opencontainers.image.description="Node LTS + Rust development on Debian Bookworm"
-ENV RUST_VERSION=1.73.0
+ENV RUST_VERSION=1.74.0
 LABEL version="${RUST_VERSION}"
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH
 
-# Copied from https://github.com/rust-lang/docker-rust/blob/95dfe05d230fddf4f89bd3df46086eed15e0c832/1.73.0/bookworm/slim/Dockerfile#L8C1-L37C33
+# Copied from https://github.com/rust-lang/docker-rust/blob/master/1.74.0/bookworm/slim/Dockerfile
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
