@@ -12,7 +12,7 @@ The Node images were selected as the base image simply because the Rust Dockerfi
 ### Docker command line example
 
 ```bash
-docker pull ghcr.io/johnbcodes/docker-node-rust:1.75.0
+docker pull ghcr.io/johnbcodes/docker-node-rust:1.76.0
 ```
 
 ## Entrypoint / Command
@@ -29,4 +29,4 @@ The Node base images were created by the [Node.js project](https://nodejs.org/).
 
 The Dockerfile code for Rust installation was created by the [Rust community](https://rust-lang.org/).
 
-The Github Action CI, publishing of the ghcr.io image, and documentation was created by myself.
+The GitHub Action CI, publishing of the ghcr.io image, and documentation was created by myself.
