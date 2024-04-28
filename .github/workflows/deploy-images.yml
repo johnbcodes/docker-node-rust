@@ -42,7 +42,7 @@ jobs:
           push: true
           build-args: |
             RUST_VERSION=${{ github.ref_name }}
-            RUSTUP_VERSION=1.26
+            RUSTUP_VERSION=1.27
       -
         name: Build
         uses: docker/build-push-action@v4

@@ -11,8 +11,14 @@ The Node images were selected as the base image simply because the Rust Dockerfi
 
 ### Docker command line example
 
+For the "Current" version of Node
 ```bash
-docker pull ghcr.io/johnbcodes/docker-node-rust:1.76.0
+docker pull ghcr.io/johnbcodes/docker-node-rust:current-latest
+```
+
+For the LTS version of Node
+```bash
+docker pull ghcr.io/johnbcodes/docker-node-rust:lts-latest
 ```
 
 ## Entrypoint / Command
